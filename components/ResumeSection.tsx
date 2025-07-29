@@ -2,6 +2,7 @@
 'use client';
 
 import { useState } from 'react';
+import { personalInfo } from '../config/personal';
 
 export default function ResumeSection() {
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
@@ -22,7 +23,7 @@ export default function ResumeSection() {
               </div>
             </div>
             
-            <h3 className="text-2xl font-semibold text-gray-800 mb-4">Ranjeet Kumar - Engineering Resume</h3>
+            <h3 className="text-2xl font-semibold text-gray-800 mb-4">{personalInfo.name} - Engineering Resume</h3>
             <p className="text-gray-600 mb-6">
               Comprehensive overview of my engineering experience, skills, projects, and achievements.
             </p>
@@ -36,12 +37,13 @@ export default function ResumeSection() {
                 Preview Resume
               </button>
               <a 
-                href="/resume.pdf" 
-                download="Ranjeet_Kumar_Resume.pdf"
+                href={personalInfo.resume.url}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-3 rounded-lg font-medium transition-colors duration-200 flex items-center justify-center cursor-pointer whitespace-nowrap"
               >
-                <i className="ri-download-line w-5 h-5 flex items-center justify-center mr-2"></i>
-                Download PDF
+                <i className="ri-external-link-line w-5 h-5 flex items-center justify-center mr-2"></i>
+                Download Resume
               </a>
             </div>
           </div>
@@ -81,13 +83,11 @@ export default function ResumeSection() {
               </button>
             </div>
             <div className="flex-1 p-4">
-              <div className="bg-gray-100 rounded-lg h-full flex items-center justify-center">
-                <div className="text-center">
-                  <i className="ri-file-text-line w-16 h-16 flex items-center justify-center text-gray-400 mb-4 text-5xl mx-auto"></i>
-                  <p className="text-gray-600">Resume preview would appear here</p>
-                  <p className="text-sm text-gray-500 mt-2">PDF viewer integration required</p>
-                </div>
-              </div>
+              <iframe 
+                src={personalInfo.resume.previewUrl}
+                className="w-full h-full rounded-lg border border-gray-200"
+                title="Resume Preview"
+              />
             </div>
           </div>
         </div>

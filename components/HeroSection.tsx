@@ -1,6 +1,8 @@
 
 'use client';
 
+import { personalInfo } from '../config/personal';
+
 export default function HeroSection() {
   return (
     <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-100 via-blue-50 to-indigo-100">
@@ -9,11 +11,11 @@ export default function HeroSection() {
           <div className="lg:w-1/2 text-center lg:text-left mb-12 lg:mb-0">
             <h1 className="text-5xl lg:text-6xl font-bold text-gray-800 mb-6 leading-tight">
               Hi,<br />
-              I'm Ranjeet Kumar.<br />
-              I'm an Engineer.
+              I'm {personalInfo.name}.<br />
+              I'm an {personalInfo.title}.
             </h1>
             <p className="text-xl text-gray-600 mb-8 max-w-lg">
-              Passionate about building innovative solutions and creating impactful technology that makes a difference.
+              {personalInfo.tagline}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <button 
@@ -34,8 +36,8 @@ export default function HeroSection() {
             <div className="relative">
               <div className="w-80 h-80 rounded-full overflow-hidden shadow-2xl">
                 <img 
-                  src="https://readdy.ai/api/search-image?query=Professional%20young%20male%20engineer%20portrait%20with%20clean%20background%2C%20modern%20professional%20headshot%2C%20confident%20smile%2C%20business%20casual%20attire%2C%20soft%20lighting%2C%20minimal%20background%2C%20high%20quality%20photography%20style&width=400&height=400&seq=hero-portrait&orientation=squarish"
-                  alt="Ranjeet Kumar - Engineer"
+                  src="/assets/profile_pic.jpg" 
+                  alt={`${personalInfo.name} - ${personalInfo.title}`}
                   className="w-full h-full object-cover object-top"
                 />
               </div>

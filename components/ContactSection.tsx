@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { personalInfo } from '../config/personal';
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -55,8 +56,8 @@ export default function ContactSection() {
                   </div>
                   <div>
                     <p className="font-medium text-gray-800">Email</p>
-                    <a href="mailto:ranjeet.kumar@email.com" className="text-blue-600 hover:text-blue-800 cursor-pointer">
-                      ranjeet.kumar@email.com
+                    <a href={`mailto:${personalInfo.contact.email}`} className="text-blue-600 hover:text-blue-800 cursor-pointer">
+                      {personalInfo.contact.email}
                     </a>
                   </div>
                 </div>
@@ -67,8 +68,8 @@ export default function ContactSection() {
                   </div>
                   <div>
                     <p className="font-medium text-gray-800">Phone</p>
-                    <a href="tel:+1234567890" className="text-blue-600 hover:text-blue-800 cursor-pointer">
-                      +1 (234) 567-8900
+                    <a href={`tel:${personalInfo.contact.phone}`} className="text-blue-600 hover:text-blue-800 cursor-pointer">
+                      {personalInfo.contact.phone}
                     </a>
                   </div>
                 </div>
@@ -79,7 +80,7 @@ export default function ContactSection() {
                   </div>
                   <div>
                     <p className="font-medium text-gray-800">Location</p>
-                    <p className="text-gray-600">San Francisco, CA</p>
+                    <p className="text-gray-600">{personalInfo.contact.location}</p>
                   </div>
                 </div>
               </div>
